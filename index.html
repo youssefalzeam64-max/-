@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يوسف الزعيم | مطور برمجيات وفنان رقمي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="neon-nav">
+        <h1>يوسف الزعيم</h1>
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#skills">العتاد</a>
+            <a href="#videos">الفيديوهات</a>
+            <a href="#portfolio">المشاريع</a>
+            <a href="#about">عن يوسف</a>
+            <a href="#contact" class="cta-primary cta-nav">تواصل</a> 
+            <button class="theme-toggle" title="تغيير خلفية الموقع">🎨</button>
+        </nav>
+    </header>
+
+    <!-- قائمة اختيار الخلفية -->
+    <div id="theme-modal" class="modal theme-modal">
+        <div class="modal-content theme-picker">
+            <span class="close-modal">&times;</span>
+            <h3>اختر خلفية الموقع</h3>
+            <div class="theme-options">
+                <div class="theme-option" data-theme="default">
+                    <div class="theme-preview default-theme"></div>
+                    <span>الخلفية الافتراضية</span>
+                </div>
+                <div class="theme-option" data-theme="gradient">
+                    <div class="theme-preview gradient-theme"></div>
+                    <span>تدرج ملون</span>
+                </div>
+                <div class="theme-option" data-theme="matrix">
+                    <div class="theme-preview matrix-theme"></div>
+                    <span>ماتريكس</span>
+                </div>
+                <div class="theme-option" data-theme="cyber">
+                    <div class="theme-preview cyber-theme"></div>
+                    <span>سايبربنك</span>
+                </div>
+                <div class="theme-option custom-upload">
+                    <div class="theme-preview upload-theme">
+                        <input type="file" id="bg-upload" accept="image/*" style="display: none;">
+                        <label for="bg-upload">+</label>
+                    </div>
+                    <span>رفع صورة خاصة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="hero-section">
+        <div class="profile-container">
+            <div class="profile-circle">
+                <div class="profile-image-wrapper">
+                    <img src="images/default-avatar.png" alt="يوسف الزعيم" id="profile-image">
+                    <div class="profile-overlay">
+                        <label for="profile-upload" class="profile-edit-btn">
+                            <span>تغيير الصورة</span>
+                        </label>
+                        <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="neon-ring"></div>
+                <div class="neon-ring-outer"></div>
+            </div>
+        </div>
+        <h2 class="neon-text">أُحوّل الأكواد إلى فن رقمي.</h2>
+        <p>مهندس برمجيات متخصص في [مجال التخصص] وبناء تجارب مستخدم لا تُنسى.</p>
+        <a href="#portfolio" class="cta-primary">استكشف المعرض 🚀</a>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h3 class="section-title">العتاد التقني (The Arsenal)</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="icons/react.svg" alt="React Logo" class="tech-icon neon-glow-blue">
+                <h4>React / Next.js</h4>
+            </div>
+            <div class="skill-card">
+                <img src="icons/python.svg" alt="Python Logo" class="tech-icon neon-glow-green">
+                <h4>Python / Django</h4>
+            </div>
+            <div class="skill-card">
+                <img src="icons/javascript.svg" alt="JavaScript Logo" class="tech-icon neon-glow-yellow">
+                <h4>JavaScript / Node.js</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="videos-section">
+        <h3 class="section-title">الفيديوهات 🎥</h3>
+        <div class="videos-grid">
+            <!-- نموذج لإضافة فيديو -->
+            <article class="video-card">
+                <div class="video-container">
+                    <video controls>
+                        <source src="videos/example.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h4>عنوان الفيديو</h4>
+                    <p class="video-desc">وصف مختصر للفيديو...</p>
+                    <div class="video-meta">
+                        <span class="video-date">📅 تاريخ النشر</span>
+                        <span class="video-duration">⏱️ المدة</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- زر إضافة فيديو جديد -->
+        <div class="add-video-container">
+            <button class="add-video-button">
+                <span>➕ إضافة فيديو جديد</span>
+            </button>
+        </div>
+
+        <!-- نافذة إضافة فيديو منبثقة -->
+        <div id="add-video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>إضافة فيديو جديد</h3>
+                <form id="video-form">
+                    <div class="form-group">
+                        <label for="video-title">عنوان الفيديو*</label>
+                        <input type="text" id="video-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="video-description">وصف الفيديو</label>
+                        <textarea id="video-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="video-upload">اختر الفيديو*</label>
+                        <input type="file" id="video-upload" accept="video/*" required>
+                    </div>
+                    <div class="video-preview-container" style="display: none;">
+                        <h4>معاينة الفيديو</h4>
+                        <video id="video-preview" controls></video>
+                    </div>
+                    <button type="submit" class="submit-video">إضافة الفيديو</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h3 class="section-title">المشاريع المُشفرة 💡</h3>
+        <div class="projects-grid">
+            <article class="project-card">
+                <img src="https://via.placeholder.com/350x200/000000/00FFFF?text=Project+AURORA" alt="AURORA project preview">
+                <div class="project-info">
+                    <h4>AURORA - نظام سحابي</h4>
+                    <p class="project-desc">منصة سحابية لإدارة الموارد في الوقت الفعلي.</p>
+                    <div class="tags">#React.js #Node.js</div>
+                    <a href="#" class="details-link">مشاهدة الملف الفني ></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h3 class="section-title">المهندس وراء الرؤية</h3>
+        <div class="about-content">
+            <div class="text-container">
+                <p class="manifesto">"أنا لا أكتب الأكواد، بل أصمم الأنظمة."</p>
+                <p>كمطور برمجيات ذو خلفية في هندسة الحلول، أؤمن بأن أفضل التقنيات هي تلك التي تجمع بين القوة الوظيفية والجمالية البصرية...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h3 class="section-title">ابدأ المشروع | تواصل مباشرة</h3>
+        <div class="contact-links">
+            <a href="tel:01554402201" class="contact-button phone-style">
+                📞 01554402201 (هاتف)
+            </a>
+            <a href="https://wa.me/201554402201" target="_blank" class="contact-button whatsapp-style">
+                🟢 تواصل واتساب
+            </a>
+            <a href="mailto:yousefalzaeem@email.com" class="contact-button email-style">
+                📧 البريد الإلكتروني
+            </a>
+            <a href="https://github.com/yousefalzaeem" target="_blank" class="contact-button github-style">
+                🐱 GitHub
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 يوسف الزعيم. تصميم فني.</p>
+    </footer>
+</body>
+</html>
